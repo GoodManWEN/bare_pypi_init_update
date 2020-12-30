@@ -40,7 +40,7 @@ with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
 os.system('python setup.py sdist bdist_wheel')
-os.system('twine upload --repository-url https://test.pypi.org/legacy/ dist/*')
+os.system('twine upload dist/*')
 
 setup_cont = f'''
 from setuptools import setup, find_packages
