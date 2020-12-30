@@ -136,5 +136,5 @@ os.remove(os.path.join(directory , 'worker.py'))
 
 os.system("git add -A")
 os.system("git status")
-os.system('git commit -m "init"')
+os.system('git commit -m "Init"')
 print("\nRepo is now up to date.")
