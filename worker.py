@@ -1,6 +1,7 @@
 import os
 import time
 import stat
+directory = os.getcwd()
 
 def rmtree(top):
     for root, dirs, files in os.walk(top, topdown=False):
@@ -12,10 +13,11 @@ def rmtree(top):
             os.rmdir(os.path.join(root, name))
     os.rmdir(top)     
 
-repo_name = input('input project name : ')
+repo_name = input('input project name (press enter to continue with directory name) : ')
+if repo_name.strip() == '':
+    repo_name = os.path.split(directory)[1]
 input(f"project name : {repo_name} , press enter to continue.")
 
-directory = os.getcwd()
 # dir name
 os.rename(os.path.join(directory , 'repo_name') , os.path.join(directory , repo_name))
 
