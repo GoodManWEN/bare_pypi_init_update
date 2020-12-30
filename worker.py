@@ -1,6 +1,16 @@
 import os
 import time
-import shutil
+import stat
+
+def rmtree(top):
+    for root, dirs, files in os.walk(top, topdown=False):
+        for name in files:
+            filename = os.path.join(root, name)
+            os.chmod(filename, stat.S_IWUSR)
+            os.remove(filename)
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
+    os.rmdir(top)     
 
 repo_name = input('input project name : ')
 input(f"project name : {repo_name} , press enter to continue.")
@@ -114,10 +124,10 @@ setup(
 with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.write(setup_cont)
 
-time.sleep(5)
-shutil.rmtree(open(os.path.join(directory , f'{repo_name}.egg-info')))
-shutil.rmtree(open(os.path.join(directory , f'build')))
-shutil.rmtree(open(os.path.join(directory , f'dist')))
+time.sleep(2)
+rmtree(os.path.join(directory , f'build'))
+rmtree(os.path.join(directory , f'dist'))
+rmtree(os.path.join(directory , f'{repo_name}.egg-info'))
 
 os.remove(os.path.join(directory , 'init_&_upload_&_init.cmd'))
 os.remove(os.path.join(directory , 'worker.py'))
