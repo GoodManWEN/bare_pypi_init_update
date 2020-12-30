@@ -1,4 +1,5 @@
 import os
+import time
 import shutil
 
 repo_name = input('input project name : ')
@@ -27,7 +28,7 @@ with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
 os.system('python setup.py sdist bdist_wheel')
-os.system('twine upload --repository testpypi dist/*')
+os.system('twine upload --repository-url https://test.pypi.org/legacy/ dist/*')
 
 setup_cont = f'''
 from setuptools import setup, find_packages
@@ -113,9 +114,10 @@ setup(
 with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.write(setup_cont)
 
-shutil.rmtree(open(os.path.join(directory , f'{repo_name}.egg-info'))
-shutil.rmtree(open(os.path.join(directory , f'build'))
-shutil.rmtree(open(os.path.join(directory , f'dist'))
+time.sleep(5)
+shutil.rmtree(open(os.path.join(directory , f'{repo_name}.egg-info')))
+shutil.rmtree(open(os.path.join(directory , f'build')))
+shutil.rmtree(open(os.path.join(directory , f'dist')))
 
 os.remove(os.path.join(directory , 'init_&_upload_&_init.cmd'))
 os.remove(os.path.join(directory , 'worker.py'))
