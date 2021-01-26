@@ -58,21 +58,20 @@ with open(os.path.join(directory , 'docs/source/api_manual/moduleinterface.rst')
     f.writelines(out)
 
 # docs/source/user_guide/quickstart.rst
-with open(os.path.join(directory , 'docs/user_guide/quickstart.rst') , 'r+' , encoding='utf-8') as f:
+with open(os.path.join(directory , 'docs/source/user_guide/quickstart.rst') , 'r+' , encoding='utf-8') as f:
     out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
-with open(os.path.join(directory , 'docs/user_guide/quickstart.rst') , 'w' , encoding='utf-8') as f:
+with open(os.path.join(directory , 'docs/source/user_guide/quickstart.rst') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
-
-
 # docs/source/licence.rst
-with open(os.path.join(directory , 'LICENSE') , 'r+' , encoding='utf-8') as f:
+with open(os.path.join(directory , 'docs/source/license.rst') , 'r+' , encoding='utf-8') as f:
     out1 = f.readlines()
-with open(os.path.join(directory , 'docs/source/licence.rst') , 'r+' , encoding='utf-8') as f:
-    out2 = f.readlines()
-out2.extend(out1)
-with open(os.path.join(directory , 'docs/source/licence.rst') , 'w' , encoding='utf-8') as f:
-    f.writelines(out2)
+if os.path.exists('LICENSE'):
+    with open(os.path.join(directory , 'LICENSE') , 'r+' , encoding='utf-8') as f:
+        out2 = f.readlines()
+    out1.extend(out2)
+with open(os.path.join(directory , 'docs/source/license.rst') , 'w' , encoding='utf-8') as f:
+    f.writelines(out1)
 
 # setup.py
 with open(os.path.join(directory , 'setup.py') , 'r+' , encoding='utf-8') as f:
@@ -180,4 +179,5 @@ os.remove(os.path.join(directory , 'worker.py'))
 os.system("git add -A")
 os.system("git status")
 os.system('git commit -m "Init"')
-print("\nRepo is now up to date.")
+os.system('git push')
+input("\nRepo is now up to date.")

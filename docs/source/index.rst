@@ -2,8 +2,7 @@ Welcome to bare_pypi_init_update's documentation!
 ===========================================
 **bare_pypi_init_update** is a project that...
 
-**bare_pypi_init_update** is distributed under an open-source :ref:`license <license>`
-(the MIT license). 
+**bare_pypi_init_update** is distributed under an open-source :ref:`license <license>`. 
 
 User Guide
 ==========
