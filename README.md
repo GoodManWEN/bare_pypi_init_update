@@ -4,6 +4,7 @@
 [![pyversions](https://img.shields.io/pypi/pyversions/bare_pypi_init_update.svg)](https://pypi.org/project/bare_pypi_init_update/)
 [![Publish](https://github.com/GoodManWEN/bare_pypi_init_update/workflows/Publish/badge.svg)](https://github.com/GoodManWEN/bare_pypi_init_update/actions?query=workflow:Publish)
 [![Build](https://github.com/GoodManWEN/bare_pypi_init_update/workflows/Build/badge.svg)](https://github.com/GoodManWEN/bare_pypi_init_update/actions?query=workflow:Build)
+[![Docs](https://readthedocs.org/projects/bare_pypi_init_update/badge/?version=latest)](https://readthedocs.org/projects/bare_pypi_init_update/)
 
 ```
 使用方法：
@@ -14,15 +15,18 @@ over
 ```
 Some description.
 
-## Feature
-- Some feature.
+## Requirements
+- pipeit>=0.1.4
 
 ## Install
 
     pip install bare_pypi_init_update
 
-## Usage
-Some description.
+## Feature
+- Some feature.
+
+## Documentation
+https://bare_pypi_init_update.readthedocs.io
 
 ## Example
 
