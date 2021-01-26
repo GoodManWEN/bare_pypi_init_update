@@ -33,6 +33,47 @@ with open(os.path.join(directory , 'README.md') , 'r+' , encoding='utf-8') as f:
 with open(os.path.join(directory , 'README.md') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
+# docs/README.md
+with open(os.path.join(directory , 'docs/README.md') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/README.md') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+# docs/source/conf.py
+with open(os.path.join(directory , 'docs/source/conf.py') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/source/conf.py') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+# docs/source/index.rst
+with open(os.path.join(directory , 'docs/source/index.rst') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/source/index.rst') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+# docs/source/api_manual/moduleinterface.rst
+with open(os.path.join(directory , 'docs/source/api_manual/moduleinterface.rst') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/source/api_manual/moduleinterface.rst') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+# docs/source/user_guide/quickstart.rst
+with open(os.path.join(directory , 'docs/user_guide/quickstart.rst') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/user_guide/quickstart.rst') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+
+
+# docs/source/licence.rst
+with open(os.path.join(directory , 'LICENSE') , 'r+' , encoding='utf-8') as f:
+    out1 = f.readlines()
+with open(os.path.join(directory , 'docs/source/licence.rst') , 'r+' , encoding='utf-8') as f:
+    out2 = f.readlines()
+out2.extend(out1)
+with open(os.path.join(directory , 'docs/source/licence.rst') , 'w' , encoding='utf-8') as f:
+    f.writelines(out2)
+
 # setup.py
 with open(os.path.join(directory , 'setup.py') , 'r+' , encoding='utf-8') as f:
     out = list(map(lambda x:x.replace('repo_name' , repo_name) , f.readlines()))
