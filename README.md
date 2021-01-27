@@ -11,6 +11,8 @@
 1、创建新项目
 2、将本项目中除.git外所有文件迁移过去并覆盖
 3、运行初始化脚本
+4、添加pypi token，与pypi连接
+5、添加readthedocs项目，与rtd连接
 over
 ```
 Some description.
