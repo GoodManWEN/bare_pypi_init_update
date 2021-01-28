@@ -13,7 +13,8 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
+import sphinx_nameko_theme
 import pkg_resources
 import datetime
 
@@ -22,14 +23,20 @@ import datetime
 project = 'bare_pypi_init_update'
 copyright = '{}, WEN'.format(datetime.date.today().year)
 author = 'WEN'
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = pkg_resources.get_distribution('bare_pypi_init_update').version
-# The full version, including alpha/beta/rc tags.
-release = version
+try:
+    version = pkg_resources.get_distribution('bare_pypi_init_update').version
+    # The full version, including alpha/beta/rc tags.
+    release = version
+except:
+    version = '0.0.1'
+    release = '0.0.1'
+
 
 # -- General configuration ---------------------------------------------------
 
@@ -49,7 +56,7 @@ language = 'en_US'
 extensions = [
     'recommonmark',
     'sphinx_markdown_tables',
-    "sphinx_rtd_theme",
+    # "sphinx_rtd_theme",
 ]
 
 # List of patterns, relative to source directory, that match files and
@@ -62,7 +69,14 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
+html_theme = 'nameko'
+html_theme_path = [sphinx_nameko_theme.get_html_theme_path()]
+html_sidebars = {
+    '**': ['localtoc.html', 'relations.html', 'sourcelink.html',
+            'sidebarlinks.html', 'searchbox.html']
+}
+
 
 # 将代码框高亮调整为绿色背景风格
 pygments_style = 'sphinx'

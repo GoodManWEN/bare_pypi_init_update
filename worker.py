@@ -51,6 +51,19 @@ with open(os.path.join(directory , 'docs/source/index.rst') , 'r+' , encoding='u
 with open(os.path.join(directory , 'docs/source/index.rst') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
+# docs/source/index.rst
+with open(os.path.join(directory , 'requirements.txt') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'requirements.txt') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
+
+# docs/source/_templates/sidebarlinks.html
+with open(os.path.join(directory , 'docs/source/_templates/sidebarlinks.html') , 'r+' , encoding='utf-8') as f:
+    out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
+with open(os.path.join(directory , 'docs/source/_templates/sidebarlinks.html') , 'w' , encoding='utf-8') as f:
+    f.writelines(out)
+
 # docs/source/api_manual/moduleinterface.rst
 with open(os.path.join(directory , 'docs/source/api_manual/moduleinterface.rst') , 'r+' , encoding='utf-8') as f:
     out = list(map(lambda x:x.replace('bare_pypi_init_update' , repo_name) , f.readlines()))
