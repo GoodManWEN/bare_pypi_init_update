@@ -14,6 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
+import pkg_resources
 import datetime
 
 # -- Project information -----------------------------------------------------
@@ -21,7 +22,14 @@ import datetime
 project = 'bare_pypi_init_update'
 copyright = '{}, WEN'.format(datetime.date.today().year)
 author = 'WEN'
-
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# The short X.Y version.
+version = pkg_resources.get_distribution('bare_pypi_init_update').version
+# The full version, including alpha/beta/rc tags.
+release = version
 
 # -- General configuration ---------------------------------------------------
 
