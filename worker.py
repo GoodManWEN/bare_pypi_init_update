@@ -187,7 +187,7 @@ with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
 time.sleep(2)
 rmtree(os.path.join(directory , f'build'))
 rmtree(os.path.join(directory , f'dist'))
-rmtree(os.path.join(directory , f'{repo_name.replace('-','_')}.egg-info'))
+rmtree(os.path.join(directory , f'{repo_name.replace("-","_")}.egg-info'))
 
 os.remove(os.path.join(directory , 'init_&_upload_&_init.cmd'))
 os.remove(os.path.join(directory , 'worker.py'))
