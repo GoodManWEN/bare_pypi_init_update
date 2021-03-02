@@ -1,6 +1,7 @@
 import os
 import time
 import stat
+import sys
 directory = os.getcwd()
 
 def rmtree(top):
@@ -92,8 +93,8 @@ with open(os.path.join(directory , 'setup.py') , 'r+' , encoding='utf-8') as f:
 with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.writelines(out)
 
-os.system('python setup.py sdist bdist_wheel')
-os.system('twine upload dist/*')
+r1 = os.system('python setup.py sdist bdist_wheel')
+r2 = os.system('twine upload dist/*')
 
 setup_cont = f'''
 from setuptools import setup, find_packages
@@ -178,6 +179,8 @@ setup(
     keywords=["{repo_name}" ,]
 )
 '''
+if r1 != 0 or r2 != 0:
+    sys.exit(1)
 with open(os.path.join(directory , 'setup.py') , 'w' , encoding='utf-8') as f:
     f.write(setup_cont)
 
